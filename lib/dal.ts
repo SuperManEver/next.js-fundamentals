@@ -2,6 +2,7 @@ import { db } from '@/db'
 import { getSession } from './auth'
 import { eq } from 'drizzle-orm'
 import { issues, users } from '@/db/schema'
+import { mockDelay } from '@/lib/utils'
 
 // Get user by email
 export const getUserByEmail = async (email: string) => {
@@ -49,6 +50,8 @@ export async function getIssues() {
 
 export async function getIssue(id: number) {
   try {
+    await mockDelay(700)
+
     const issue = await db.query.issues.findFirst({
       where: eq(issues.id, id),
       with: {
