@@ -13,7 +13,7 @@ import {
   FormSelect,
   FormError,
 } from './ui/Form'
-import { createIssue, ActionResponse } from '@/app/actions/issues'
+import { createIssue, ActionResponse, updateIssue } from '@/app/actions/issues'
 
 interface IssueFormProps {
   issue?: Issue
